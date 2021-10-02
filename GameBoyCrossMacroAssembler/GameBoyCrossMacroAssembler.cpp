@@ -5,6 +5,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <cstddef>
 
 #define DEBUG_MESSAGES
 #define MSG(a) std::cout<<a<<"\n";
@@ -22,6 +23,12 @@ std::vector<std::string> ParseRawASMText(std::vector<std::string> ASMFiles);
 std::vector<std::string> ParseASMLines(std::vector<std::string> lines);
 std::vector<std::vector<std::string>> Tokenize(std::vector<std::string> lines);
 std::vector<std::vector<std::string>> PreProcessor(std::vector<std::vector<std::string>> tokens);
+
+struct SECTION
+{
+    unsigned short address;
+    std::byte* data;
+};
 
 //std::vector<std::string> RawASMText;
 int main(int argc, const char** argv)
